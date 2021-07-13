@@ -1,0 +1,1774 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Manual tecnico del sistema</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6d8daa59-816b-4979-8f98-15b2797f67ed" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1594904351111-a072f80b1a71?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">☕</span></div><h1 class="page-title">Manual tecnico del sistema</h1></header><div class="page-body"><h1 id="41d12bdc-760d-421b-b9dc-f3b22c3251bb" class="">Instituto Politecnico Nacional</h1><h2 id="5cf2c7b2-6c91-4c11-8206-3598e130204b" class="">Escuela Superior de computo</h2><h2 id="d06410a0-3435-4b3d-9daa-26a0302c2937" class="">Programacion orientada a objetos</h2><h2 id="c6498859-5725-46b4-8941-f68e0c2de0a8" class="">Grupo 2CV11</h2><h3 id="ad07127c-2d33-48f2-9ea9-2a8d102f6196" class="">Profesor: Saul Torres De la O</h3><p id="ea648197-7f55-4793-a51a-1e7de7d6b31b" class="">
+</p><p id="101b335e-7c97-4145-b3d0-d71fd9631d6e" class="">Integrantes:</p><ul id="d756ccb1-681e-4db7-9de7-e5dba09a032b" class="bulleted-list"><li>Rivera Barron Isaac Alejandro</li></ul><ul id="73036379-0eae-4082-9af9-d14d803ff405" class="bulleted-list"><li>Hernandez Razo Juan Daniel</li></ul><ul id="374330a3-449c-445a-be4b-18661d744586" class="bulleted-list"><li>De la Cruz del Angel Victor Hugo</li></ul><p id="0da2e016-2eca-401b-8950-54d7c018e96e" class="">
+</p><p id="a36970f0-64a6-4040-9448-7773f42b683c" class="">
+</p><hr id="1f35d198-93cd-45ad-bfdd-389295d4497f"/><h1 id="ab9ba368-4f42-4c6f-9be5-7a7297e85dcf" class="">Clase  Domicilio  :</h1><h3 id="8da1655e-e4fb-40bc-8e4a-5f8244e452b0" class="">Atributos</h3><pre id="a3b7bdc7-6b70-4f87-85b9-b5f983dce3a4" class="code"><code>import java.io.Serializable;
+
+public class Domicilio implements Serializable{
+	static final long serialVersionUID = 1L;
+	private String calleYNumero;
+	private String colonia;
+	private String ciudad;
+	private String pais;
+	private String cp;</code></pre><p id="477c3e1d-f3b4-46b0-922f-363513f21e38" class="">Se importa &quot;Serializable&quot; para hacer el uso de flujos, ademas se declaran los atributos privados de la clase Domicilio.</p><h3 id="83d3ba10-e237-4375-81bf-5e8801289dc5" class="">Constructores.</h3><pre id="96a131cd-6ddb-4b6b-bcfb-2a0fd42cde69" class="code"><code>	public Direccion(){
+        this(&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);
+    }</code></pre><p id="42cdcd33-be91-4887-a7b8-0224df8397ed" class="">Se crea el primer constructor que envia cadenas vacias para asignarlas a los atributos de mi objeto.</p><pre id="62f0f64b-e454-41ad-b5b3-aa2c5c502d33" class="code"><code>public Domicilio(String calleYnumero, String colonia, String cuidad, String pais, String cp){
+        this.calleYNumero = calleYnumero;
+        this.colonia = colonia;
+        this.ciudad = cuidad;
+        this.pais = pais;
+        this.cp = cp;
+    }</code></pre><p id="264e6db6-84ea-4bb3-b2b2-5def85e0c74a" class="">En este fragmento se crea el constructor sobrecargado el cual asigna los valores correspondientes.</p><h3 id="bbcda576-7e20-4759-9c69-0fbf8c0953e5" class="">Destructor:</h3><pre id="c54769d9-3441-4a27-9059-318af881a42b" class="code"><code>public void destruir(){
+	if(calleYNumero != null &amp;&amp; colonia!=null &amp;&amp; ciudad !=null &amp;&amp; pais != null &amp;&amp; cp!=null){
+		calleYNumero = null;
+		colonia = null;
+		ciudad = null;
+		pais = null;
+		cp = null;
+		System.gc();
+		}
+	}</code></pre><p id="9f049e17-c977-416d-986b-b9bc9a6524a0" class="">Se crea el destructor correspondiente de la clase , el cual asigna valores nulos para después llamar a garbage y borrar los datos.</p><h3 id="2769206d-e3cd-4b83-9f19-32b273bdddd2" class="">Metodos get():</h3><pre id="fe61be79-2bdb-4fc4-8be2-c17d0cbb6639" class="code"><code>	public String getCalleYNumero(){
+		return calleYNumero;
+	}
+...</code></pre><p id="1a68c702-78ab-42d7-a5f8-0d31285bc1ce" class="">Metodo para obtener el atributo calle y numero.</p><pre id="f93203f7-c030-4789-b74a-db685d9b54eb" class="code"><code>	public String getColonia(){
+		return colonia;
+	}
+...</code></pre><p id="90e68c69-73f6-42fc-bc7f-f793331e9dff" class="">Metodo para obtener el atributo colonia.</p><pre id="48c24351-ecc4-4999-8d56-1d9dd2b3acbf" class="code"><code>	public String getCiudad(){
+	 return ciudad; 
+	}
+...</code></pre><p id="a1cf7c70-58ea-4e7f-a51b-374fc3652c2c" class="">Metodo para obtener atributo ciudad</p><pre id="dd9825c9-198c-41c4-8ef0-9d72023d7d55" class="code"><code>	public String getPais(){
+	 return pais; 
+	}
+...</code></pre><p id="edf5b7cf-81f6-4425-9771-98e76f7369e2" class="">Metodo para obtener atributo pais</p><pre id="fdb1a266-5a24-4dfe-bfdb-cfe3cb1a6d21" class="code"><code>	public String getCp(){
+	 return cp; 
+	}
+...</code></pre><p id="f15e1995-c089-4122-8255-9acb3c238bb4" class="">Metodo para obtener codigo postal</p><h3 id="f5feabf2-81f8-463a-832c-6e895bbc1865" class="">Metodos set():</h3><pre id="54f622d4-c5a4-42a6-98ad-7a581e3ad65b" class="code"><code>	public String setCalleYNumero(String cn){
+		calleYNumero = cn;
+	}
+...</code></pre><p id="584d8dfe-5a59-4fea-9d54-38cd1ae75ccd" class="">Metodo para  modificar el atributo calle y numero.</p><pre id="3b16ce86-8fab-4a7d-b1ce-5462ac625b14" class="code"><code>	public String setColonia(Sting c){
+		colonia = c;
+	}
+...</code></pre><p id="8261512a-8ae5-4283-81ff-bce7316d1947" class="">Metodo para modificar el atributo colonia.</p><pre id="43407bd4-be89-4f8a-aa45-2d1d98102993" class="code"><code>public String setCiudad(String city){
+		ciudad = city;
+		return ciudad;
+	}</code></pre><p id="08ec53cc-9c2d-466f-8b64-8a8780e7c62a" class="">Metodo para modificar el atributo ciudad</p><pre id="0210fd32-92be-472a-a21d-ac48e9be3d02" class="code"><code>public String setPais(String p){
+		 pais = p;
+		return  pais;
+	}</code></pre><p id="11ef677d-5853-473e-99bc-9cea3769daf3" class="">Metodo para modificar el atributo pais</p><pre id="bf234420-a113-4a5f-a5e2-1576a093b5bc" class="code"><code>public String getCp(String ps){
+	  cp = ps ;
+	  return ps;
+		}</code></pre><h3 id="c125d01f-4de2-4c38-9a8a-b5f2ac880914" class="">Metodo toString():</h3><pre id="30fca461-7ad4-4e0d-9568-4fa4c4bfb8f0" class="code"><code>	@Override
+	public String toString(){
+		return &quot;Calle y numero: &quot;+ calleYNumero + &quot;\n&quot;+
+						&quot;Colonia: &quot; + colonia + &quot;\n&quot; +
+						&quot;Ciudad: &quot; + ciudad + &quot;\n&quot; +
+						&quot;Pais: &quot; + pais + &quot;\n&quot; +
+						&quot;Codigo Postal: &quot; + cp + &quot;\n&quot; ;
+	}
+}</code></pre><p id="dbddae4b-45a8-4c7e-9435-c3eedcd2af4e" class=""> </p><hr id="7c93f384-c059-4720-85b2-4d7cae69146d"/><h1 id="e81afa91-8ec9-4152-ab3f-c9f2f0f766a2" class="">Clase  Usuario:</h1><h3 id="a84c75fb-bb09-402d-8d9a-ec81d1d8302c" class="">Atributos:</h3><pre id="93711052-c93c-4e5f-b56c-7d65a180666e" class="code"><code>import java.io.Serializable;
+public class Usuario implements Serializable{
+	static final long serialVersionUID = 1L;
+	private String nombreCompleto;
+	private int numeroID;
+	private String password;
+	private Domicilio domicilio;
+	private Telefono telefono;
+	private String fechaContratacion;
+	private int edad;
+	private int departamento;
+	private double sueldo;
+	private String es;</code></pre><p id="3fdd3e42-3177-401e-85f2-70409e44cc57" class="">Se inicializa la clase la cual implementa Srializable y se declaran sus atributos privados; ademas se importa Serializable para implementar flujos.</p><h3 id="04c29472-d561-4a7f-823a-45ba35d1567c" class="">Constructores:</h3><pre id="a3aa3eab-0c97-4a02-8b74-7c2538d7e6b3" class="code"><code>public Usuario(String n, int nu, String c, String ca,
+				   String co, String ci, String pa,
+				   String cp, String tel, String cor,
+				   String fc, int e, int de, double s, String es){
+
+		nombreCompleto = n;
+		numeroID = nu;
+		password = c;
+		domicilio = new Domicilio(ca,co,ci,pa,cp);
+		telefono = new Telefono(tel, cor);
+		fechaContratacion = fc;
+		edad = e ;
+		departamento = de ;
+		sueldo = s;
+		this.es = es;
+	}</code></pre><p id="43f78d32-258d-4a82-9b6f-4e0daa010fb2" class="">constructor que recibe los atributos individualmente como argumentos.</p><pre id="2d001e58-0a9d-409c-be48-9246e05ce520" class="code"><code>public Usuario(Usuario u){
+		nombreCompleto = u.nombreCompleto;
+		numeroID = u.numeroID;
+		password = u.password;
+		domicilio = u.domicilio;
+		telefono = u.telefono;
+		fechaContratacion = u.fechaContratacion;
+		edad = u.edad;
+		departamento = u.departamento;
+		sueldo = u.sueldo;
+		es = u.es;
+	}</code></pre><p id="cc6b998f-ee47-4099-ac78-b5d112989fd5" class="">constructor que recibe como argumento un usuario para asignar los atributos correspondientes</p><h3 id="f465462a-d70a-482a-a2cd-68731bada183" class="">Destructores:</h3><pre id="1d653b40-c7e0-454f-a061-3b34e82331d4" class="code"><code>public void destruir(){
+		if(nombreCompleto!=null &amp;&amp; numeroID!=0 
+			&amp;&amp; password!=null &amp;&amp; domicilio!=null 
+			&amp;&amp; telefono!=null &amp;&amp; fechaContratacion!=null 
+			&amp;&amp; edad!=0 &amp;&amp; departamento!=0 &amp;&amp; sueldo!=0 ){
+        	nombreCompleto = null;
+        	numeroID = 0;
+        	password = null;
+        	domicilio = null;
+        	telefono = null;
+        	fechaContratacion = null;
+        	edad = 0;
+        	departamento = 0;
+        	sueldo = 0;
+        	System.gc();
+		}	
+	}</code></pre><p id="8dbfa670-783f-446a-ac46-0e8972b3a969" class="">Este destructor se encarda de convertir los atributos a nulos para despues llamar a System.gc() y destruir el objeto.</p><h3 id="1862dc59-ce97-4ab1-a907-280cf3dadcee" class="">Metodos get():</h3><pre id="41098ba4-11b3-4e8a-90f6-b5dfb2db48d0" class="code"><code>public int getNumeroID(){
+		return numeroID;
+	}</code></pre><p id="9ff674d9-dc3b-4593-9644-89942dd79e06" class="">metodo get que retorna el ID</p><pre id="747ae88c-abb2-4db9-a627-c30a932a0fb5" class="code"><code>public String getPassword(){
+		return password;
+	}</code></pre><p id="4bb6b904-148b-4ab6-89fb-782f1ee80d30" class="">metodo get que retorna el password</p><pre id="6d21e9b0-4c35-424a-ad83-181542a3000b" class="code"><code>public String getEs(){
+		return es;
+	}</code></pre><p id="dd563377-4871-4d03-a882-73e72737bdb2" class="">metodo get que retorna el atributo es.</p><pre id="54eca0c4-48ea-4a43-875c-ffc4289d8245" class="code"><code>public String getNombre(){
+		return nombreCompleto;
+	}</code></pre><p id="685a4041-bcfb-41ee-9bf4-e618afb44cdc" class="">Metodo get que retorna el atributo nombre.</p><h3 id="fa5455b5-0d23-41ae-a944-b9ff3536aab6" class="">Metodos set():</h3><pre id="e9f2d974-b016-4bb2-bce8-7aca67fd8999" class="code"><code>public void setName(String nombreCompleto){
+		this.nombreCompleto = nombreCompleto;
+	}</code></pre><p id="0725f2c9-b857-4b2c-a0d7-17c15c37d75a" class="">Metodo set que modifica el nombre al recibido por el metodo.</p><pre id="5bd03ed8-9a5e-47f8-853e-819beb1d2866" class="code"><code>public void setPassword(String password){
+		this.password = password;
+	}</code></pre><p id="0843ee83-fb93-413d-8c5f-b9a7d71414c0" class="">Metodo set que modifica el password a la recibida por el metodo.</p><pre id="a6550e1a-c3be-4ab4-9517-9d6c0573934f" class="code"><code>public void setDomicilio(String calle,String colonia,
+							String ciudad, String pais, String cp){
+		domicilio.setCalleYNumero(calle);
+		domicilio.setColonia(colonia);
+		domicilio.setCiudad(ciudad);
+		domicilio.setPais(pais);
+		domicilio.setCp(cp);
+	}</code></pre><p id="fa5b4f13-a5f0-4454-8aad-ed40139464c6" class="">Metodo set que modifica los componentes del domicilios por los que se reciben en el metodo.</p><pre id="ca981d46-bcae-4daa-a55c-b4daaf3dcb09" class="code"><code>public void setTelefono(String tel, String correo){
+		telefono.setTelefono(tel);
+		telefono.setCorreo(correo);
+	}</code></pre><p id="04a4596f-0817-4713-9676-0b1a816a1eb7" class="">Metodo set que modifica el telefono y correo electronico a los que se reciben en el metodo.</p><pre id="3ad811f6-46c5-4543-8608-360310498bd3" class="code"><code>public void setFechaContratacion(String fecha){
+		this.fechaContratacion = fecha;
+	}</code></pre><p id="8521f9e2-233c-489f-b7e6-0a629e1c3702" class="">Metodo set que modifica la fecha de contatacion a la que se recibe en el metodo.</p><pre id="07c1578a-a88a-4716-b57a-c212abdd24f4" class="code"><code>public void setEdad(int edad){
+		this.edad = edad;
+	}</code></pre><p id="5aab7c1d-c126-4b2a-92fc-71f6ae8cf3a7" class="">Metodo set que modifica la edad a la que se recibe en el metodo.</p><pre id="76d74ead-f9b3-4ee8-a1d1-8d50a4b7e207" class="code"><code>public void setDepartamento(int dep){
+		this.departamento = dep;
+	}</code></pre><p id="a639bb0a-0571-4140-b725-e6fb39d3ee3c" class="">Metodo set que modifica el departamento al recibido en el metodo.</p><h3 id="0e0a1493-0862-4939-a37d-5e4976f9c3ba" class="">Metodo toString():</h3><pre id="d5c7df0b-9c0a-441e-bdc6-92a1a48bb301" class="code"><code>@Override
+	public String toString(){
+		return &quot;Nombre Completo: &quot; + nombreCompleto + &quot;\n&quot; +
+		&quot;NumeroID: &quot; + numeroID + &quot;\n&quot; + 
+		&quot;Domicilio: &quot; + domicilio + &quot;\n&quot; + 
+		&quot;Contactos: &quot; + telefono + &quot;\n&quot; + 
+		&quot;fecha de contratacion: &quot; + fechaContratacion + &quot;\n&quot; +
+		&quot;Edad: &quot; + edad + &quot;\n&quot; + 
+		&quot;Departamento&quot; + departamento + &quot;\n&quot; + 
+		&quot;Sueldo: &quot; + sueldo + &quot;\n&quot;;
+	}</code></pre><p id="0a346423-4ee7-4625-a96e-0576dc25375d" class="">Este metodo retorna los atributos del usuario enlistadas en un orden establecido.</p><p id="a5bf5a7d-3fea-478f-bbe4-16df30323c88" class="">
+</p><hr id="7b880f47-f235-4c86-a319-509c71ca50ea"/><h1 id="082f26ed-2594-4174-9b08-cb70381cb33d" class="">Clase Encargado:</h1><h3 id="97a52fe6-a9c8-4321-b0ed-83d5f59ae651" class="">Atributos:</h3><pre id="d57a9457-1cc1-4479-b20b-c286508d541d" class="code"><code>import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+
+public class Encargado {
+    private static Usuario cuenta;
+    private static double cambio;</code></pre><p id="6ce7eea6-811d-471f-8425-165eb1e839a5" class="">En este apartado se importan las clases correspondientes para implementar flujos en java edemas se declaran los atributos privados los cuales permanecen estáticos por el uso de flujos en la clase.</p><h3 id="29213fb4-708f-45c6-a934-7ee20613a4b8" class="">Constructores:</h3><pre id="462488cb-2c85-4129-934f-b4334f018a5c" class="code"><code>public Encargado(Usuario user){
+        this.cuenta = user;
+    }</code></pre><p id="315d1735-6928-4b04-9452-83ed773fa957" class="">Constructor de encargado creado a partir de la cuenta que recibe nuestro constructor.</p><h3 id="baff917d-c063-45ac-b2eb-d57b2af3777f" class="">Destructor:</h3><pre id="e3d4e29f-6603-4349-9108-d8decf465e34" class="code"><code>public void destruir(){
+        if(cuenta!=null){
+            cuenta=null;
+            System.gc();
+        }
+    }</code></pre><p id="531855d5-0225-4339-9edc-421c2b1c31a4" class="">Destructor de encargao el cual asigna un valor nulo al atributo principal para despues llamar a System.gc() para destruir el objeto.</p><h3 id="71fa57b2-9f3a-40bf-9ea6-a0a9bf60c1ab" class="">Métodos:</h3><pre id="86bc9394-9383-47a9-9f2d-f4d6e5577f7b" class="code"><code>public void realizarCompra(double presupuesto){
+        Compra compra = new Compra(presupuesto);
+        int opc =0;
+        cambio = 0;
+        
+        do{   
+            System.out.println(&quot;\t1) Registrar compra&quot;);
+            System.out.println(&quot;\t2) Regresar&quot;);
+            opc = Integer.parseInt(leer());
+            switch(opc){
+                case 1: 
+                    cambio=compra.registrarCompra();
+                    break;
+                case 2:
+                    break;
+            }  
+        }while(opc != 2);
+    }</code></pre><p id="38c9e8b7-e60c-4006-a2ec-8c201f38ea52" class="">Este metodo se encarga de crear una nueva compra par poder registrarla, el metodo recibira el presupuesto de la compra, esto dependera si el encargado requiere registrar la compra.</p><pre id="e8b9d6db-ac1a-4e96-b9d8-1faf513536c9" class="code"><code>public double actualizarPresupuesto(){
+        return cambio;
+    }</code></pre><p id="11f25a2a-6bef-4745-bd16-eb6e26bd8ad2" class="">Este método nos sirve para obtener el valor del atributo cambio. para actualizar el presupuesto.</p><pre id="05782493-b305-4f68-a2e9-29c6ce68efaa" class="code"><code>public double actualizarPresupuestoPorProveedor(){
+        Tesorero unProR = new Tesorero();
+        return unProR.surtirDeRecursos();
+    }</code></pre><p id="e6cbbb83-6188-4926-87ac-bc304fd6520b" class="">Este metodo nos sirve para llamar al proveedor material para volver a llenar el Stock de los productos vacios.</p><pre id="b644a2be-71a3-4bfe-bcdb-d5ddb4318923" class="code"><code>public void mostrarUsuario(){
+        int opc = 0;
+        do{
+            System.out.println(&quot;\t1) Editar Infomracion&quot;);
+            System.out.println(&quot;\t2) Mostrar informacion&quot;);
+            System.out.println(&quot;\t3) salir&quot;);
+            opc = Integer.parseInt(leer());
+            switch(opc){
+                case 1:
+                    editarInfo();
+                    break;
+                case 2:
+                    System.out.println(cuenta);
+                    break;
+            }
+            
+        }while(opc!=3);
+    }</code></pre><p id="8c7a4c59-4da5-47d2-b072-985c85aba509" class="">Este metodo nos muestra un menu con tres opciones los cuales nos permitiran salir, editar la informacion y mostrar la informacion.</p><pre id="e23cf80a-ec26-4681-9be5-3935cf1a54a1" class="code"><code>public static void editarInfo() {
+        int opc = 0;
+        String cambio =&quot; &quot;;
+        do {
+            System.out.println(&quot;Que quieres editar?&quot;);
+            System.out.println(&quot;1) Nombre completo &quot;);
+            System.out.println(&quot;2) Contraseña&quot;);
+            System.out.println(&quot;3) Direccion&quot;);
+            System.out.println(&quot;4) Telefono&quot;);
+            System.out.println(&quot;5) Fecha de contratacion&quot;);
+            System.out.println(&quot;6) Edad&quot;);
+            System.out.println(&quot;7) Departamento&quot;);
+            System.out.println(&quot;8) Regresar&quot;);
+            opc= Integer.parseInt(leer());
+           
+            switch(opc){
+                case 1:
+                    System.out.println(&quot;Dame el nuevo valor...&quot;);
+                    cambio = leer();
+                    cuenta.setName(cambio);
+                    break;
+                case 2:
+                    System.out.println(&quot;Dame el nuevo valor...&quot;);
+                    cambio = leer();
+                    cuenta.setPassword(cambio);
+                    break;
+                case 3:
+                    cambiarDomicilio();
+                    break;
+                case 4:
+                    cambiarTelefono();
+                    break;
+                case 5:
+                    System.out.println(&quot;Dame el nuevo valor...&quot;);
+                    cambio = leer();
+                    cuenta.setFechaContratacion(cambio);
+                    break;
+                case 6:
+                    System.out.println(&quot;Dame el nuevo valor...&quot;);
+                    cambio = leer();
+                    cuenta.setEdad(Integer.parseInt(cambio));
+                    break;
+                case 7:
+                    System.out.println(&quot;Dame el nuevo valor...&quot;);
+                    cambio = leer();
+                    cuenta.setDepartamento(Integer.parseInt(cambio));
+                    break;
+            }
+        }while(opc !=8);
+    }</code></pre><p id="9b40048a-0499-4e6b-ba95-0af66b2570f0" class="">Este metodo nos despliega un menu para poder elegir que dato se va a editar.</p><pre id="2ea47f39-fefc-46ca-9969-31ecd5bfd54d" class="code"><code>public static void cambiarDomicilio(){
+        String calle,colonia,ciudad,pais,cp;
+        System.out.println(&quot;Calle y Numero?&quot;);
+        calle = leer();
+        System.out.println(&quot;Colonia?&quot;);
+        colonia= leer();
+        System.out.println(&quot;Ciudad?&quot;);
+        ciudad = leer();
+        System.out.println(&quot;Pais?&quot;);
+        pais = leer();
+        System.out.println(&quot;Codigo postal?&quot;);
+        cp = leer();
+        cuenta.setDomicilio(calle,colonia,ciudad,pais,cp);
+    }</code></pre><p id="003d1cf3-a8cf-43b8-a198-109751661872" class="">Este metodo cambia el domicilio componente a componente.</p><pre id="1ac7bb1f-250b-42ea-9b02-fecfe1d3497f" class="code"><code>public static void cambiarTelefono(){
+        String telefono,correo;
+        System.out.println(&quot;Telefono?&quot;);
+        telefono = leer();
+        System.out.println(&quot;Correo?&quot;);
+        correo = leer();
+        cuenta.setTelefono(telefono, correo);
+    }</code></pre><p id="a45b0c97-e9a6-4340-bb15-60f5b757be81" class="">Este metodo cambia el telefono y correo electronico.</p><pre id="8ec0ac4b-01f0-4b00-b855-7d0c5b638437" class="code"><code>public void mostrarVentasDelDia(){
+        String path = &quot;\\Users\\isaac\\Desktop\\ProyectoPOO&quot;;//TuDirectorio
+        String archivoN = path + &quot;ventas.obj&quot;;
+        FlujoLinkedListInputStream flujoEntrada = new FlujoLinkedListInputStream(archivoN);
+        List&lt;Object&gt; ventasRegistradas = flujoEntrada.leerObjetos();
+        for (Object venta : ventasRegistradas) {
+                System.out.println(venta);
+        }
+    }</code></pre><p id="4cc2b048-5cd1-46f0-8ebb-cf65646897b7" class="">Este método hace el uso de un flujo de entrada para  mostrar las ventas de un día completo.</p><pre id="0071bf87-3891-45f0-8110-bfcc96604534" class="code"><code>public static String leer(){
+        String s=&quot;&quot;;
+	BufferedReader sd = new BufferedReader(new InputStreamReader(System.in));
+            try{
+        	s =sd.readLine();
+            }
+	catch(IOException e){
+        	System.out.println(&quot;ERROR: Se introdujo el dato&quot;);
+       		System.out.println(e);
+    	}
+    	return s;
+    }
+}</code></pre><p id="bf95bbfe-edb5-47a1-882d-6bef26e20a38" class="">Este método implementa un flujo de entrada para poder leer los datos.</p><hr id="f39d8a52-adbc-4870-a374-905c4d3f5ad6"/><h1 id="e481c2ce-603e-4a28-9314-960845414e36" class="">Clase Departamento</h1><pre id="0d17e8fd-5ebf-4ca2-a40f-b04cc597e01d" class="code"><code>import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.ProcessBuilder;</code></pre><p id="a17757f3-846f-4629-8f91-e5532aac85e3" class="">En este bloque se exportan las  librerías las cuales nos permitirán implementar un flujo .</p><h3 id="e1c25d8d-5a81-4091-a843-ae2d1f0efe8a" class="">Atributos</h3><pre id="0d867e0f-78b0-4397-a8b5-e93b246d2fba" class="code"><code>public class Departamento {
+    private String tipo;
+    private int numero;
+    private double presupuesto;
+    private Personal empleado;
+    private Encargado encargado;</code></pre><p id="78f0bcbe-36b0-4e9d-b5cf-39eb9a03be0f" class="">Se declaran los atributos privados, tipo que es un String, numero que es un entero, presupuesto que es un , empleado y gerente.</p><h3 id="ad511f74-aea6-4e09-8f76-d3c840718c31" class="">Constructores</h3><pre id="8238e709-9a3b-4540-a0c0-487eccdc13c0" class="code"><code>public Departamento() {
+        this.tipo = null;
+        this.numero = 0;
+        this.presupuesto = 0;
+    }</code></pre><p id="936c5184-5c75-49d9-9edc-27f2391578fa" class="">Se empieza creando el primer constructor departamento que no recibe ningún parámetro así que asigna valores nulos y ceros al objeto. </p><pre id="5528dcba-bff8-4562-bed1-3173dde502bb" class="code"><code>  public Departamento(String tipo, int numero, double presupuesto) {
+        this.tipo = tipo;
+        this.numero = numero;
+        this.presupuesto = presupuesto;
+      
+    }</code></pre><p id="29d32b74-afd5-4b55-89d2-3679b35f6d49" class="">Despues se sobrecargan los constructores, en el primer caso se recibe como parámetro cada uno de los atributos de la clase </p><pre id="9cce044e-3af3-42e7-b4e8-19d6a89d42fa" class="code"><code>    public Departamento(Departamento dep) {
+        tipo = dep.getTipo();
+        numero = dep.getNumero();
+        presupuesto = dep.getPresupuesto();
+    }</code></pre><p id="5c68b12b-7fbd-4a26-b615-62525746dafa" class="">El segundo recibe un Departamento y utiliza los metodos para obtener los valores de los atributos.</p><h3 id="ca84a8ba-6186-44f5-a62e-1a2258232c2f" class="">Destructor</h3><pre id="720e5c7c-5f58-48f8-86ad-d7be145d949d" class="code"><code>public void destruir() {
+        if (tipo != null &amp;&amp; numero != 0) {
+            tipo = null;
+            numero = 0;
+            System.gc();
+        }
+    }</code></pre><p id="c01e8845-a7fc-4af6-8865-b10bcb07d232" class="">Se crea el destructor de departamento el cual iguala a null los atributos para llamar a garbage.</p><h3 id="cbffe7fb-9531-419f-a4c5-f7eb7b8952a7" class="">Menus</h3><h3 id="16da379a-99de-4ed2-bdcf-098bc4b45bf9" class="">Menu Personal</h3><pre id="b7b1804b-8528-4243-b6e0-152266cbde83" class="code"><code>public void menuPersonal(){
+        int opc= 0;
+        do{
+            ClearConsole();
+            System.out.println(&quot;1) Ventas&quot;);
+            System.out.println(&quot;2) Usuario&quot;);
+            System.out.println(&quot;3) SALIR&quot;);
+            opc = Integer.parseInt(leer());
+            switch(opc){
+                case 1:
+                    empleado.realizarVenta();
+                    break;
+                case 2: 
+                    empleado.mostrarUsuario();
+                    break;
+            }
+        }while(opc != 3);
+    }</code></pre><p id="2011b232-2229-4992-ad22-e5f977bed4ab" class="">En esta clase se implementan dos menus para cada uno de los tipos de cuentas que existen en nuestro sistema, el primer menu que se implementa es para el personal &quot;normal&quot;.</p><pre id="a27da7f2-7bd6-4214-9d88-0b137e2ff1f8" class="code"><code>public void menuPersonal(){
+        int opc= 0;
+        do{
+            ClearConsole();
+            System.out.println(&quot;1) Ventas&quot;);
+            System.out.println(&quot;2) Usuario&quot;);
+            System.out.println(&quot;3) SALIR&quot;);
+            opc = Integer.parseInt(leer());
+            switch(opc){
+                case 1:
+                    empleado.realizarVenta();
+                    break;
+                case 2: 
+                    empleado.mostrarUsuario();
+                    break;
+            }
+        }while(opc != 3);
+    }</code></pre><p id="00cd2b46-88ec-476b-b6ba-2586c3884d0f" class=""> El segundo menu que se crea en este bloque es para el menu del encargado. </p><h3 id="f2fde952-655c-41b1-a97e-ff0e7108d498" class="">Usuario:</h3><pre id="e2acecdc-988d-4dd3-830a-3220a1671dc0" class="code"><code>public static Usuario iniciarSesion(){
+        Usuario[] cuentasPersonal = {
+                new Usuario(&quot;Juan Daniel Hernanadez&quot;, 1234, &quot;simur&quot;,
+                        &quot;Colinas de Plata&quot;, &quot;El cruce&quot;, &quot;Hidalgo&quot;, &quot;Hidalgo&quot;,
+                        &quot;07945&quot;, &quot;5548523159&quot;, &quot;juand@gmail.com&quot;,
+                        &quot;19-11-2000&quot;, 19, 1, 15000,&quot;empleado&quot;),
+
+                new Usuario(&quot;Victor de la Cruz&quot;, 2345, &quot;hugo22&quot;, &quot;22 de Febrero&quot;,
+                        &quot;Nicolas Romero&quot;, &quot;Edo Mexico&quot;, &quot;Mexico&quot;, &quot;54435&quot;,
+                        &quot;5518253794&quot;, &quot;victorh@gmail.com&quot;,
+                        &quot;19-12-2000&quot;, 19, 1, 15000,&quot;empleado&quot;)
+        };</code></pre><p id="8d2b92fe-cd16-4b5d-9de7-a97f0c3daf11" class="">En este apartado se crea el método iniciar sesión en el cual se crean dos arreglos de Usuarios, en el primer arreglo se añaden todas las cuentas del personal y</p><pre id="7eb32b14-9246-4b5d-8892-20c8ecb2a44d" class="code"><code>Usuario[] cuentasEncargados = {
+                new Usuario(&quot;Saúl Torres&quot;, 3456, &quot;sdelao&quot;, &quot;Aquiles Serdan&quot;,
+                        &quot;iztapalapa&quot;, &quot;CDMX&quot;, &quot;Mexico&quot;, &quot;69813&quot;,
+                        &quot;5524657435&quot;, &quot;sdelao@gmail.com&quot;, &quot;01-01-1990&quot;,
+                        22, 1, 30000,&quot;gerente&quot;)
+        };</code></pre><p id="193d5949-0607-4284-aa6c-eec74c753edf" class="">En el segundo se añaden todas las cuentas de los encargados.</p><h3 id="feba105d-fad8-4f8d-814b-661641b187a6" class="">Metodos:</h3><pre id="b30976a9-f9bc-4b9f-b530-3a0845900def" class="code"><code>public static String leer() {
+        String s = &quot;&quot;;
+        BufferedReader sd = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            s = sd.readLine();
+        } catch (IOException e) {
+            System.out.println(&quot;ERROR: Se introdujo el dato&quot;);
+            System.out.println(e);
+        }
+        return s;
+    }</code></pre><p id="cc992070-e791-4757-93a7-a196477cc789" class="">Se crea el genero leer el cual crea un buffer de lectura.</p><h3 id="2f5c53a3-00e2-41e5-a47b-61ef35fe4e22" class="">Metodos get</h3><pre id="8fd342eb-7c8c-483f-89a2-e7d532743b48" class="code"><code>public String getTipo() {
+        return tipo;
+    }
+    public int getNumero() {
+        return numero;
+    }
+    public double getPresupuesto() {
+        return presupuesto;
+    }
+    public Personal getEmpleado() {
+        return empleado;
+    }
+    public Encargado getEncargado() {
+        return encargado;
+    }</code></pre><p id="f98efa4f-25b4-409c-a590-a44591c45e2f" class="">Se crean los métodos get para obtener todos los atributos de la clase.</p><pre id="447ebf18-dc29-4017-a335-39d607d1d4e7" class="code"><code>    }
+    @Override
+    public String toString() {
+        return &quot;Tipo: &quot; + tipo + &quot;\n&quot;
+                + &quot;Numero:\n&quot; + numero + &quot;\n&quot;;
+    }
+}</code></pre><p id="afa74aec-05c0-4f40-a1c5-bd9b833ff20d" class="">Se crea el método toString del método departamento.</p><hr id="773e6077-bb45-4849-94ab-e1e413286a3a"/><h1 id="3e16311e-a65b-4808-8eee-4880412d1bf1" class="">Clase TicketDigital</h1><pre id="3f520d61-a602-4622-84ae-ad78865b1b55" class="code"><code>import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
+</code></pre><p id="7e838ab8-a972-4f87-843d-beefbc7493c5" class="">Dentro del Ticket se dará la hora y fecha de la compra. Para esto usaremos la librería Calendar y Date.</p><p id="0a0bc6ce-3e35-4765-866a-7616d1ecb5e9" class="">Con Serializable nos permitirá enviar Tickets al flujo </p><h3 id="dbc9421a-e05b-4bde-ade2-df54c65a4fae" class="">Atributos:</h3><pre id="54277faa-5d93-4565-a6d9-ef1c0e7e5ded" class="code"><code>	public class TicketDigital implements Serializable{	
+		static final long serialVersionUID = 1L;
+    private int [] productos;
+    private double []precio;
+    private int numeroDeVenta;
+    private double IvaAplicado;
+    private double precioFinal;
+    private double montoCliente;
+    private double cambio;
+    private int numero;
+    private int hora,minutos,segundos;
+    private int dia,mes,anio;</code></pre><h3 id="04eb61fd-e781-4a80-819c-095603c03a2e" class="">Constructores</h3><pre id="b9195c21-f126-484c-b36d-4c91565dc419" class="code"><code>public TicketDigital(int[] productos, double[] precio, int numeroDeVenta,
+				double IvaAplicado, double precioFinal, double montoCliente,
+				double cambio, int numero){
+
+        Calendar calendario = Calendar.getInstance();
+        this.hora = calendario.get(Calendar.HOUR_OF_DAY);
+        this.minutos = calendario.get(Calendar.MINUTE);
+        this.segundos = calendario.get(Calendar.SECOND);
+        this.dia = calendario.get(Calendar.DATE);
+        this.mes = calendario.get(Calendar.MONTH);
+        this.anio = calendario.get(Calendar.YEAR);
+        this.productos = productos;
+        this.precio = precio
+        this.numeroDeVenta = numeroDeVenta;
+        this.IvaAplicado = IvaAplicado;
+        this.precioFinal = precioFinal;
+        this.montoCliente = montoCliente;
+        this.cambio = cambio;
+        this.numero = numero;
+    }</code></pre><p id="b8f1b11d-8bf3-4bbc-b7f3-0364adb87038" class="">Constructor con argumentos</p><pre id="11be6b57-4cf0-46ee-bdd2-220d427c5008" class="code"><code>public TicketDigital(TicketDigital unTicket){
+        hora = unTicket.hora;
+        minutos = unTicket.minutos;
+        segundos = unTicket.segundos;
+        dia = unTicket.dia;
+        mes = unTicket.mes;
+        anio = unTicket.anio;
+        productos = unTicket.productos;
+        precio = unTicket.precio;
+        numeroDeVenta = unTicket.numeroDeVenta;
+        IvaAplicado = unTicket.IvaAplicado;
+        precioFinal = unTicket.precioFinal;
+        montoCliente = unTicket.montoCliente;
+        cambio = unTicket.cambio;
+    }</code></pre><p id="6fe81f95-4a1c-4c00-a3a5-84443acef6f2" class="">Constructor copia</p><pre id="2bdc8c32-aaff-449e-847e-2dba8a58c3c7" class="code"><code>public int [] getFecha(){
+       int [] fecha = {
+         hora,
+         minutos,
+         segundos,
+         dia,
+         mes,
+         anio
+       };
+       return fecha;
+    }
+    public int getNumeroDeVenta(){
+        return numeroDeVenta;
+    }
+    
+    public double getIvaAplicado(){
+        return IvaAplicado;
+    }
+    public double getPrecioFinal(){
+        return precioFinal;
+    }
+    public double getMontoCliente(){
+        return montoCliente;
+    }
+    public double getCambio(){
+        return cambio;
+    }
+    public String productos(){
+        String regreso =&quot;&quot;;
+        for(int i=0;i&lt;numero;i++){
+            
+            regreso = regreso + productos[i] + &quot;  $&quot; + precio[i] + &quot;\n&quot;;
+        }
+        return regreso;
+    }
+    
+    @Override
+    public String toString(){
+        return  &quot;\n»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»\n&quot; +
+                &quot;»\tHora:  &quot; + hora + &quot;:&quot; + minutos + &quot;:&quot; + segundos + &quot;\t\n&quot; + 
+                &quot;»\tFecha de la compra:  &quot; + dia + &quot;/&quot; + mes + &quot;/&quot; + anio + &quot;\t\n&quot; +
+                &quot;»\tProductos:\n&quot; + productos() + &quot;\n&quot; + 
+                &quot;»\tNumero de venta:  &quot; + numeroDeVenta + &quot;\n&quot; + 
+                &quot;»\tIva aplicado:  &quot; + IvaAplicado + &quot;\n&quot; + 
+                &quot;»\tPrecio final:  &quot; + precioFinal + &quot;\n&quot; + 
+                &quot;»\tMonto del cliente:  &quot; + montoCliente + &quot;\n&quot; + 
+                &quot;»\tCambio:  &quot; + cambio + &quot;\n&quot; + 
+		        &quot;»\tGracias por su compra :)&quot; +
+                &quot;\n»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»    ¶\n&quot;;
+    }</code></pre><p id="d8d02f5c-ce0b-4d72-b5bb-ada458ebb940" class="">Los &quot;get&quot; de la clase sirven para mostrar los productos en el toString.</p><hr id="a8999311-40d7-405f-94f8-129ffa2de100"/><p id="cfae630c-5dba-4586-b5d0-577e63c465dc" class="">
+</p><h1 id="b888581a-7861-4ef8-848c-999bc1e4d43f" class="">Clase Tesorero</h1><h3 id="86db1953-4894-48b7-906c-34bf52838820" class="">Atributo</h3><pre id="3e89c365-22e3-4524-a2ed-de4755b484b3" class="code"><code>public class Tesorero extends Proveedor {
+private String tipoDeProducto;</code></pre><p id="77bbece9-e9a0-41b5-93be-f6d1ae6ca918" class="">Tesorero hereda de proveedor</p><h3 id="3edd1a2b-91b5-4b2a-928d-9d24e68f065e" class="">Constructor y destructor </h3><pre id="32585de4-3ea4-47e2-8fe3-81f0b8dcc25a" class="code"><code>public Tesorero(){
+        
+    }
+    public Tesorero(String nombre, String telefono, String correo, String CalleYNum, 
+							String colonia, String ciudad, String pais, String cp, String tipoP){
+        super(nombre,telefono,correo,CalleYNum,colonia,ciudad,pais,cp);
+        tipoDeProducto = tipoP;
+   
+    public Tesorero(Tesorero unProR){
+        super(unProR);
+        tipoDeProducto = unProR.tipoDeProducto;
+    }
+    
+    public void destruir(){
+        if(tipoDeProducto!= null){
+            super.destruir();
+            System.gc();
+        }
+    }</code></pre><h3 id="cfa65bcb-e6c6-4ac2-bc5e-0d0a84338bc6" class="">Metodo</h3><pre id="573137fe-998d-48a3-9e72-fd0ed8dacba4" class="code"><code>   public double surtirDeRecursos(){
+        System.out.println(&quot;Mandando recurso economico&quot;);
+        return 1000000.00;
+    }
+    
+        public String toString() {
+        return super.toString() + &quot;\n&quot; + 
+               &quot;Tipo de producto: &quot; + tipoDeProducto + &quot;\n&quot;; 
+    }
+}</code></pre><p id="9a700205-4d97-4d2a-91b9-cde4a2e041b2" class="">Para aumentar el presupuesto de la tienda</p><p id="5bd9d778-e657-4932-9ff5-9fb1b68dee5c" class="">
+</p><hr id="82f219d5-79fe-4272-b9e7-dcb31f01fd84"/><h1 id="d6b3d1f1-7c90-4d68-b113-f14f4f277788" class="">Clase Compra</h1><pre id="6e0f4081-5f86-4003-9cb2-fcb71e55c9fc" class="code"><code>import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;</code></pre><p id="dcc486a1-e562-4340-8f50-292961b295ce" class="">BufferedReader nos ayudara a hacer lecturas sencillas desde flujos de caracteres.</p><p id="38c3934f-17b2-4dfe-a6b6-e41b32ef93da" class="">IOException para capturar las excepciones que se hayan podido producir en el bloque de código delimitado por try y catch.</p><p id="070dc2eb-8770-44fc-8d64-674fdb09ab01" class=""> InputStreamReader es un puente entre flujos de bytes y flujos de caracteres: lee bytes y los decodifica en caracteres utilizando un juego de caracteres específico.</p><h3 id="89ab8d65-34b5-45df-b454-f721fb760dd5" class="">Atributos</h3><pre id="dfeed652-e833-4df5-9671-14d0a9a1ac0e" class="code"><code>public class Compra {
+    private static int [] productos;
+    private double presupuesto;
+    public Compra(double presupuesto){
+        this.presupuesto = presupuesto;
+    }</code></pre><p id="d0858054-d28d-424d-911a-c8a9bedb24d1" class="">Presupuesto como el nombre de la clase nos indica ayudara a saber el presupuesto para comprar</p><p id="89a61deb-b227-45fa-9a57-3e25f8089b49" class="">La clase estática productos nos servirá para indicar los productos a comprar </p><pre id="17a22d40-5ac7-44b6-95c0-4b7809d7bd7b" class="code"><code>public static void ingresarProductos(int numero){
+        int ban=0, i=0;
+        productos = new int[numero];
+        int producto;
+        for(i=0;i&lt;numero;i++){
+            System.out.println(&quot;Ingrese el codigo del producto:&quot;);
+            producto = Integer.parseInt(leer());
+               try{
+                    productos[i] = producto;
+               }catch(NullPointerException e){
+                   System.out.println(&quot;ERROR NULLPOINTER EXCEPTION&quot;);
+                   System.out.println(i);
+                   System.out.println(productos);
+               }catch(ArrayIndexOutOfBoundsException r){
+                   System.out.println(&quot;ERROR ARRAY&quot;);
+                   System.out.println(i);
+                   System.out.println(productos);
+               }
+         
+        }
+    }</code></pre><p id="acfaa883-fd2c-4114-b1d7-bc80c1d4a3e8" class="">Con este método el Usuario, en este caso el encargado ingresa los productos que se van a entregar a la tienda </p><pre id="3c595373-478b-4fcd-9b4c-844660d2ffaf" class="code"><code>public double registrarCompra(){
+        int i,numero;
+        double cambio =0;
+        double precioTotal;
+        //preguntamos cuantos productos va a comprar el cliente
+        System.out.println(&quot;Cuantos productos son para surtir?&quot;);
+        numero = Integer.parseInt(leer());
+        //Aqui se ingresan los productos, se envia el numero de productos 
+        ingresarProductos(numero);
+        ProveedorDeBienes unProB = new ProveedorDeBienes(
+                &quot;Daniel Campos&quot;, &quot;55-5132-5400&quot;, &quot;danielc@gmail.com&quot;,
+                &quot;San Antonio Abad&quot;, &quot;Cuauhtémoc&quot;, &quot;CDMX&quot;, &quot;Mexico&quot;,
+                &quot;09570&quot;,&quot;Bienes&quot;,productos);
+        //se determina el precio total de los productos y se verifica que alcance el presupuesto
+        unProB.determinarPrecio();
+        precioTotal=unProB.precioTotal();
+        System.out.println(&quot;El precio total es de: &quot; + precioTotal);
+        if(presupuesto&lt;precioTotal){
+            System.out.println(&quot;El presupuesto no alcanza... es de &quot; + presupuesto);
+            
+        }
+        else{ 
+            System.out.println(&quot;productos almaccenados...&quot;);
+            cambio=nuevoPresupuesto(precioTotal);
+            unProB.almacenarProductos();
+        }
+        return cambio;
+    }</code></pre><p id="2932c560-5f3e-406d-a7ad-140db4293328" class="">Se pregunta cuanto producto va a comprar el cliente, se llama al método para ingresar los productos y se crea un proveedor de bienes que restaurara el producto.</p><p id="ccce2d0e-12f5-4ccc-8102-d62e421d6a84" class="">Se calcula el precio total de los productos y se verifica si el cliente cuenta con suficiente dinero </p><pre id="b43c4074-0180-4848-9a36-aeb7c762a2e5" class="code"><code>public double nuevoPresupuesto(double precioTotal){
+        return presupuesto-precioTotal;
+    }</code></pre><p id="3e5b254d-900a-40db-888c-69a51a4b3cb8" class="">Se calcula el cambio</p><pre id="9a5121ed-ad1e-4eef-9b96-c0bd5687fd90" class="code"><code>public static String leer(){
+        String s=&quot;&quot;;
+	BufferedReader sd = new BufferedReader(new InputStreamReader(System.in));
+            try{
+        	s =sd.readLine();
+            }
+	catch(IOException e){
+        	System.out.println(&quot;ERROR: Se introdujo el dato&quot;);
+       		System.out.println(e);
+    	}
+    	return s;
+		
+    }
+}</code></pre><hr id="423d06ee-132b-4392-a8c6-ebc22cc4745f"/><h1 id="058f4685-4ff2-49c3-bc83-4b052485cd46" class="">Clase Personal</h1><pre id="c35f0ca4-128d-4902-8b2f-c1ce33ac0b61" class="code"><code>import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;</code></pre><p id="8d373d13-f6c9-4dab-bd29-35ea0e4440f7" class="">BufferedReader nos ayudara a hacer lecturas sencillas desde flujos de caracteres.</p><p id="6b944d8c-86b6-48e4-8869-729951d7a4b8" class="">IOException para capturar las excepciones que se hayan podido producir en el bloque de código delimitado por try y catch.</p><p id="67664212-2a31-468b-b603-eeb0f38f7f4c" class=""> InputStreamReader es un puente entre flujos de bytes y flujos de caracteres: lee bytes y los decodifica en caracteres utilizando un juego de caracteres específico.</p><pre id="bef150f6-d978-462d-88db-4798e3812651" class="code"><code>public class Personal{
+    
+    private static Usuario usuario;
+    public Personal( Usuario unUsuario){
+        
+        this.usuario = unUsuario;
+    }
+    
+    public void destruir(){
+        if(usuario != null){
+            usuario = null;
+            System.gc();
+        }
+    }</code></pre><p id="c7199966-0252-4a85-8b7a-0a362a694ccf" class="">El atributo de empleado es el objeto cuenta </p><p id="47cafd45-9fc6-4ffa-adf3-deb724d96b5d" class="">Tambien tenemos su destructor</p><pre id="00f7b081-9d8c-410a-b72f-2116d108bf59" class="code code-wrap"><code>public void realizarVenta(){
+        Venta venta = new Venta();
+        int opc =0;
+        do{   
+            System.out.println(&quot;\t1) Registrar venta&quot;);
+            System.out.println(&quot;\t2) Regresar&quot;);
+            
+            opc = Integer.parseInt(leer());
+            switch(opc){
+                case 1: 
+                    venta.registrarVenta();
+                    break;
+                case 2:
+                    
+                    break;
+            }
+            
+        }while(opc != 2);
+        venta.almacenarTicketDigital();
+    }</code></pre><p id="4c646f40-dde8-4b27-baf5-dd796bf8e41b" class="">En este método se realizan las ventas en un menú con la opción de registrar venta o salir</p><pre id="3d116fa8-aedf-47d8-8bad-344df6433f46" class="code"><code>public void mostrarUsuario(){
+        int opc = 0;
+        do{
+            System.out.println(&quot;*************************************&quot;);
+            System.out.println(&quot;*                                   *&quot;);
+            System.out.println(&quot;*\t1) Editar Infomracion       *&quot;);
+            System.out.println(&quot;*\t2) Ver informacion          *&quot;);
+            System.out.println(&quot;*\t3) Regresar                 *&quot;);
+            System.out.println(&quot;*                                   *&quot;);
+            System.out.println(&quot;*************************************&quot;);
+            opc = Integer.parseInt(leer());
+            switch(opc){
+                case 1:
+                    editarInfo();
+                    break;
+                case 2: 
+                    System.out.println(usuario);
+                    break;
+            }
+            
+        }while(opc!=3);
+    }</code></pre><p id="8a77dc8e-ac7f-4c8c-b3e6-68287af85d9e" class="">Dentro de este método se muestra un menú en el que se puede ver o editar la información del empleado. </p><pre id="41fef7dd-93d8-4dfe-8669-356fb2316154" class="code"><code>public static void editarInfo() {
+        int opc = 0;
+        String cambio =&quot; &quot;;
+        do {
+            System.out.println(&quot;**********************************&quot;);
+            System.out.println(&quot;*                                *&quot;);
+            System.out.println(&quot;* Que quieres editar?            *&quot;);
+            System.out.println(&quot;* 1) Nombre completo             *&quot;);
+            System.out.println(&quot;* 2) Contraseña                  *&quot;);  
+            System.out.println(&quot;* 3) Domicilio                   *&quot;);
+            System.out.println(&quot;* 4) Telefono                    *&quot;);
+            System.out.println(&quot;* 5) Fecha de contratacion       *&quot;);
+            System.out.println(&quot;* 6) Edad                        *&quot;);
+            System.out.println(&quot;* 7) Departamento                *&quot;);
+            System.out.println(&quot;* 8) Regresar                    *&quot;);
+            System.out.println(&quot;*                                *&quot;);
+            System.out.println(&quot;**********************************&quot;);
+            opc= Integer.parseInt(leer());
+            
+            switch(opc){
+                case 1: 
+                    System.out.println(&quot;Dame el nuevo valor...&quot;);
+                    cambio = leer();
+                    usuario.setName(cambio);
+                    break;
+                case 2:
+                    System.out.println(&quot;Dame el nuevo valor...&quot;);
+                    cambio = leer();
+                    usuario.setPassword(cambio);
+                    break;
+                case 3:
+                    cambiarDomicilio();
+                    break;
+                case 4:
+                    cambiarTelefono();
+                    break;
+                case 5:
+                    System.out.println(&quot;Dame el nuevo valor...&quot;);
+                    cambio = leer();
+                    usuario.setFechaContratacion(cambio);
+                    break;
+                case 6:
+                    System.out.println(&quot;Dame el nuevo valor...&quot;);
+                    cambio = leer();
+                    usuario.setEdad(Integer.parseInt(cambio));
+                    break;
+                case 7:
+                    System.out.println(&quot;Dame el nuevo valor...&quot;);
+                    cambio = leer();
+                    usuario.setDepartamento(Integer.parseInt(cambio));
+                    break;
+            }
+        }while(opc !=8);
+    }</code></pre><p id="3bd82171-dc32-4724-b91e-7869077641a8" class="">Aqui se cambiaran los valores viejos por los que se van a sustituir </p><pre id="121c4335-329e-4f8a-b2e9-b2a9d1e95f46" class="code"><code>public static void cambiarDomicilio(){
+        String calle,colonia,ciudad,pais,cp;
+        System.out.println(&quot;Calle y Numero?&quot;);
+        calle = leer();
+        System.out.println(&quot;Colonia?&quot;);
+        colonia= leer();
+        System.out.println(&quot;Ciudad?&quot;);
+        ciudad = leer();
+        System.out.println(&quot;Pais?&quot;);
+        pais = leer();
+        System.out.println(&quot;Codigo postal?&quot;);
+        cp = leer();
+        usuario.setDomicilio(calle,colonia,ciudad,pais,cp); 
+				//setDireccion(calle,colonia,ciudad,pais,cp);
+    }
+    
+    public static void cambiarTelefono(){
+        String telefono,correo;
+        System.out.println(&quot;Telefono?&quot;);
+        telefono = leer();
+        System.out.println(&quot;Correo?&quot;);
+        correo = leer();
+        usuario.setTelefono(telefono, correo);
+    }
+
+    public static String leer(){
+        String s=&quot;&quot;;
+	BufferedReader sd = new BufferedReader(new InputStreamReader(System.in));
+            try{
+        	s =sd.readLine();
+            }
+	catch(IOException e){
+        	System.out.println(&quot;ERROR: Se introdujo el dato&quot;);
+       		System.out.println(e);
+    	}
+    	return s;
+		
+    }
+    
+}</code></pre><p id="dd712459-1074-4e7e-bb72-a6090ff25d05" class="">Estos métodos al igual que los anteriores serán usados a la hora de reemplazar información</p><hr id="54c79a54-9cde-4cf5-b6f2-1db015d47979"/><p id="666f7e7c-aeb4-4596-a512-a21ca40c0672" class="">
+</p><h1 id="c006f84c-322e-4aef-8b1d-caf7935f80af" class="">Clase Teléfono:</h1><pre id="97f9ba07-e4fa-45bd-906e-47f11bff9da3" class="code"><code>package Proyecto;
+
+import java.io.Serializable;
+
+public class Telefono implements Serializable {
+    static final long serialVersionUID = 1L;
+    private String telefono;
+    private String email;</code></pre><p id="11a5831a-f7e4-46a1-a085-4bb94423f151" class="">Se importa el paquete Serializable que sirve solamente para especificar que todo el estado de un  objeto instanciado podrá ser escrito o enviado en la red como una trama de bytes, también se declaran los atributos en privado. </p><p id="ba5d2f00-0842-4c5d-9dc1-bdeeca25727c" class="">
+</p><pre id="acbb74a1-1b74-48c5-b752-cdf6142eb85f" class="code"><code>		public Telefono(){
+        this(&quot;00+0000000000&quot;, &quot;&quot;);
+    }
+    public Telefono(String telefono, String email){
+        this.telefono = telefono;
+        this.email = email;
+    }
+    public Telefono(Telefono otroTelefono){
+        this(otroTelefono.telefono, otroTelefono.email);
+    }</code></pre><p id="a7eae163-5dc3-43d3-9de3-80bba3c6fef3" class="">Se crean los contructores que em primera instancia se colocan los valores que se enviarán al segundo contructor, mientras que el sgundo constructor los lee u ocupa siendo el tercer constructor una copia con estos datos.</p><p id="12c2b8a2-b0b7-47fa-8e5e-2baea39ebe72" class="">
+</p><pre id="2223a634-ff8c-4876-86fe-eab08068dca8" class="code"><code>public void destruir(){
+        if(telefono != null &amp;&amp; email != null){
+            telefono = null;
+            email = null;
+            System.gc();
+        }
+    }</code></pre><p id="f5ed558e-ef34-4c9e-95aa-403273a27c71" class="">Se crea el destructor para colocar los atributos en null.</p><p id="bcda94ae-d86e-4acd-a903-95a1f8fa3929" class="">
+</p><pre id="2021e347-14ab-4827-8a74-80b67cf3ee39" class="code"><code>public String getTelefono(){
+        return telefono;
+    }
+
+public String getCorreo(){
+        return email;
+    }</code></pre><p id="7a33b633-663d-44d0-943e-8bbf96a84380" class="">Se crean los métodos get de Teléfono y correo para obtener su valor y ocuparlos en otras clases o funciones.</p><p id="81fc79e8-deee-4d12-a80d-0a15810357ba" class="">
+</p><pre id="19d9e8fa-2c7c-4139-859b-dce904d696fb" class="code"><code>public void setTelefono(String telefono){
+        this.telefono = telefono;
+    }
+
+public void setCorreo(String correo){
+        this.email = correo;
+    }</code></pre><p id="d7acddd7-f52e-40e6-bfed-cbfd2a68b4d1" class="">Se crean los métodos Set de Teléfono y  Correo para poder manipularlos y mostrarlos. </p><p id="7f03e25c-e4ae-4218-8936-c1ff5afb4c28" class="">
+</p><pre id="befa5ab6-e9e8-4ed4-899b-248699131031" class="code"><code>@Override
+    public String toString(){
+        return &quot;Telefono:  &quot; + telefono + &quot;\n&quot;+
+                &quot;Correo:  &quot; + email + &quot;\n&quot;;
+    }</code></pre><p id="fe9ebc52-9c59-4dc5-a878-1f3304971ac9" class="">Se obtiene una salida con formato de descripción y valor. </p><hr id="15cbe737-1c31-4e4d-962f-10c47f7f95f1"/><p id="f18ce331-9d5b-40ec-b9ec-4375a8161ac5" class="">
+</p><h1 id="a823660c-2404-4a67-ae13-bdb89af51d54" class="">Clase Proveedor:</h1><pre id="79ada06c-b1a1-4dd1-bfbf-733f7fbd483d" class="code"><code>package Proyecto;
+
+public class Proveedor extends Domicilio{
+    private String nombre;
+    private Domicilio direccion;</code></pre><p id="c4842001-22d4-4aef-b6aa-f2de853fb92a" class="">Se importa el paquete Serializable que sirve solamente para especificar que todo el estado de un  objeto instanciado podrá ser escrito o enviado en la red como una trama de bytes, también se declaran los atributos en privado. </p><p id="b7929f48-50a3-4e5c-82d4-feafed7cd6f1" class="">
+</p><pre id="e69ee7f6-3064-4e78-959b-2952fac9e3c0" class="code"><code>public Proveedor(){
+        this(&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);
+    }
+    
+    public Proveedor(String nombre, String telefono, String email,
+                     String calleYnum, String colonia, String ciudad,
+                     String pais, String CP){ 
+        this.direccion = new Domicilio(calleYnum, colonia, ciudad, pais, CP);
+        this.nombre = nombre;
+    }
+    
+    public Proveedor(Proveedor unProveedor){
+        nombre = unProveedor.nombre;    
+        direccion = unProveedor.direccion;
+    }</code></pre><p id="bf8dd73f-53ff-4949-89ae-d7d259527ba8" class="">Se crean tres constructores con la intención del que primero pase los valores al segundo y sobrecargando el segundo constructor y el tercer constructor guarde como una copia estos valores siendo este otro Proveedor.</p><p id="d9dfb78f-f7d9-411f-8a80-7118171012cc" class="">
+</p><pre id="fdc2b1db-d541-42b8-a1a3-eb0722325b50" class="code"><code>@Override
+    public void destruir(){
+        if(nombre!= null){
+           
+                if(direccion != null){
+                    nombre = null;
+                    ;
+                    direccion = null;
+                    System.gc();
+                }
+            }
+   }</code></pre><p id="1cc9181a-c100-4826-b1d9-fffae995ac46" class="">Se crea un destructor para poner en null a las variables de nombre y dirección.</p><p id="60561cd2-a214-4069-9eed-9cd25fda9298" class="">
+</p><pre id="9c8dbed5-a04b-4650-841f-d4c71cd01c75" class="code"><code>public void proveer(){
+        System.out.println(&quot;Se esta abasteciendo la Tienda...&quot;);
+    }</code></pre><p id="3b678fa9-2fb7-4494-999d-87908783a22b" class="">Se genera un mensaje dentro de la función proveer para hacer mención que se esta abasteciendo la tienda que ya cuenta con productos para registrar las ventas.</p><p id="780243bc-8abf-4fd3-ac8e-4a63714ffb1d" class="">
+</p><pre id="94e4aacf-d65d-4693-9150-57a95fe1882c" class="code"><code>@Override 
+    public String toString(){
+        return &quot;Nombre: &quot; + nombre + &quot;\n&quot; +
+               &quot;Direccion:\n&quot; + direccion + &quot;\n&quot;;
+    }
+}</code></pre><p id="1972fe88-d0e3-4a6e-af37-50ca8a61427e" class="">Se genera un toString para que devuelva los valores de las variables nombre y dirección, como una fuente de información para leer en pantalla.</p><hr id="c2e1affc-a94d-496d-8517-2c04af5c108b"/><h1 id="7d41722f-65c1-422c-8bf7-ddc87f328044" class="">Clase ProveedorDeBienes:</h1><pre id="78c2edfb-4006-470f-af0c-15cfea8ca424" class="code"><code>package Proyecto;
+
+import java.util.LinkedList;
+    
+
+public class ProveedorDeBienes extends  Proveedor{
+    private String tipoDeProducto;
+    private static int[] productos;
+    private static double [] precios;</code></pre><p id="f83d51d9-ef1e-47b9-9b18-03ab90337406" class="">Se importa el paquete Serializable que sirve solamente para especificar que todo el estado de un  objeto instanciado podrá ser escrito o enviado en la red como una trama de bytes, también se declaran los atributos en privado. </p><p id="246ecadd-a61f-490f-9eab-2e08e2371b64" class="">
+</p><pre id="3c000db0-2512-4cfb-ad20-e38e445cc393" class="code"><code>public ProveedorDeBienes(){
+        
+    }
+    public ProveedorDeBienes(String nombre, String telefono, String correo, 
+           String calleYnum, String colonia, String ciudad, String pais,
+           String cp, String tipoProducto, int[] productos){
+        super(nombre,telefono,correo,calleYnum,colonia,ciudad,pais,cp);
+        this.tipoDeProducto = tipoProducto;
+        ProveedorDeBienes.productos = productos;
+    }
+    public ProveedorDeBienes(ProveedorDeBienes unProveedorBienes){
+        super(unProveedorBienes);
+        tipoDeProducto = unProveedorBienes.tipoDeProducto;
+        ProveedorDeBienes.productos = unProveedorBienes.productos;
+    }</code></pre><p id="ea06c0de-2b9d-4eaa-aecd-3c2c3106cc4d" class="">Se crean los contructores de ProveedorDeBienes en el cual se sobrecargan en el segundo constructor mientras que en el tercer constructor se está realizando una copia de otro Proveedor de Bienes pero con los mismos atributos o variables.</p><p id="54d68db6-dd82-4c82-8347-fa9f6c64091c" class="">
+</p><pre id="cb84f519-74d2-4f29-8996-8d815af4481d" class="code"><code>@Override
+    public void destruir(){
+        if(tipoDeProducto!= null){
+            tipoDeProducto = null;
+            System.gc();
+        }
+    }</code></pre><p id="0f30a8fd-fe49-4ee9-86b6-501846671d3e" class="">Se genera un destructor para esta clase en el cual si tipoDeProducto no es null, por lo que tiene un valor, entonces esta se destruye iniciándola en null.</p><p id="d04bb0a6-b960-4818-b96c-c4658ca0c804" class="">
+</p><pre id="6e1741c5-ccb2-46e5-ae0c-5521cbc61442" class="code"><code>public void determinarPrecio(){
+        int numero = productos.length;
+        int j;
+        precios = new double [numero];
+        try{
+            for( j=0;j&lt;numero;j++ ){
+                if(productos[j] ==0){precios[j] = 1500;}
+                else if(productos[j] ==1){precios[j] = 200;}
+                else if(productos[j] ==2){precios[j] = 800;}
+                else if(productos[j] ==3){precios[j] = 700;}
+                else if(productos[j] ==4){precios[j] = 500;}
+                else if(productos[j] ==5){precios[j] = 900;}
+                else if(productos[j] ==6){precios[j] = 1700;}
+                else if(productos[j] ==7){precios[j] = 1350;}
+                else if(productos[j] ==8){precios[j] = 5000;}
+                else if(productos[j] ==9){precios[j] = 15000;}
+            }
+        }catch(NullPointerException e){
+            System.out.println(&quot;ERROR&quot;);
+        }      
+    }</code></pre><p id="528b177d-b2e9-4fec-9546-99c4082ea2d2" class="">Se genera la función determinar precio el cual consiste en que a cada producto conforme a la clave del producto esta se le asigna un precio siendo estos solamente 9 productos en el inventario.</p><p id="48f9ca5d-25da-4dae-be4f-e6af880697c8" class="">
+</p><pre id="a1fc26b6-598b-44c6-b43f-c34a47f02337" class="code"><code>public double precioTotal(){
+        int numero= precios.length;
+        double precioFin = 0;
+        int a;
+        try{
+            for(a = 0; a&lt;numero ;a++)
+                precioFin = precioFin + precios[a];
+        }catch(NullPointerException e){
+            System.out.println(&quot;ERROR :(&quot;);
+            precios = null;
+        }
+        return precioFin;
+    }</code></pre><p id="00dcb019-783a-4340-bc70-ed365257e188" class="">Se crea una función precioTotal con el parametro de que es double, su función es general un valor el cual consiste en realizar la compra de los productos, y squellos productos seleccionados son las que sus cantidades se suman, devolviendo el precio total.</p><p id="d0e317af-4748-4cfd-821f-0fa74bdd0e27" class="">
+</p><pre id="eebffab3-b4e9-434d-8875-898ee38c2c33" class="code"><code>public void almacenarProductos(){
+        String path = &quot;\\Users\\McCarthy\\Documents\\POO\\Editar Proy\\Proyecto\\src\\Proyecto&quot;;
+        String archivoP = path + &quot;productos.obj&quot;;
+        FlujoLinkedListOutputStream flujoSalida= new FlujoLinkedListOutputStream(archivoP);
+        System.out.println(&quot;Almacenando productos...\n &quot;);
+        LinkedList&lt;Object&gt; producto = new LinkedList&lt;&gt;();
+         for (int unosProductos : productos) {
+             producto.add(unosProductos);
+        }
+        flujoSalida.escribirObjetos(producto);
+    }</code></pre><p id="2f9fdbc8-cf1e-47f9-82c5-7925ebd5d808" class="">Se realiza una función almacenarProductos en el cual se crea una ruta o un directorio en el que se crea un archivo productos.obj donde se van guardando los productos que se seleccionan y cada producto se va guardando en una lista ligada.</p><p id="e6469fe7-b36a-4413-b00d-3e371db19dcb" class="">
+</p><pre id="9c1ec738-dd72-44ee-a94d-0de936acea42" class="code"><code>@Override
+    public String toString() {
+        return super.toString() + &quot;\n&quot; + 
+               &quot;Tipo de producto: &quot; + tipoDeProducto + &quot;\n&quot;; 
+    }
+   
+}</code></pre><p id="02cdb3a7-ee65-41f6-a6aa-86f62220794e" class="">Se crea una función toString en el cual se devuelve la cadena tipoDeProducto siendo la variable de la clase.</p><hr id="a9c4b89c-f9ab-4dc6-87aa-aa20f80a4e8f"/><h1 id="54819b0a-11d2-4076-9e98-73854f4a8547" class="">Clase Venta:</h1><pre id="4e4845fb-87d8-4f89-8e2b-92789027414e" class="code"><code>package Proyecto;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+
+public class Venta {
+    private int numeroVenta;
+    private static int [] productos;
+    private static double [] precios;
+    private static LinkedList&lt;Object&gt;tickets;</code></pre><p id="8e547753-861e-46cc-9a4f-88794deb0759" class="">Se importa el paquete Serializable que sirve solamente para especificar que todo el estado de un  objeto instanciado podrá ser escrito o enviado en la red como una trama de bytes, también se declaran los atributos en privado. </p><p id="136d6dc8-fc80-4e78-86e1-e4f0cc0f2cf1" class="">
+</p><pre id="b8e91528-1f65-492b-aeb0-1873c6d5f139" class="code"><code>public Venta(){        
+        tickets = new LinkedList&lt;&gt;();
+    }
+    
+    public Venta(int numeroVenta){
+        this.numeroVenta = numeroVenta;
+    }</code></pre><p id="6c6dcf30-01e4-4a28-bc2d-02ecde2fe07e" class="">Se crean los constructores y el cual el primer constructor crea una lista ligada donde se irá almacenando la información de los ticket&#x27;s.</p><p id="d92b8eef-e50b-41bc-9ca0-6a0e4604aa9a" class="">
+</p><pre id="4064bc6b-da27-49e1-ab59-9d75c69bd519" class="code"><code>public static void determinarPrecios(int i){
+        int j;
+        precios = new double [i];
+        try{
+            for( j=0;j&lt;i;j++ ){
+                if(productos[j] ==0){precios[j] = 1500;}
+                else if(productos[j] ==1){precios[j] = 200;}
+                else if(productos[j] ==2){precios[j] = 800;}
+                else if(productos[j] ==3){precios[j] = 700;}
+                else if(productos[j] ==4){precios[j] = 500;}
+                else if(productos[j] ==5){precios[j] = 900;}
+                else if(productos[j] ==6){precios[j] = 1700;}
+                else if(productos[j] ==7){precios[j] = 1350;}
+                else if(productos[j] ==8){precios[j] = 5000;}
+                else if(productos[j] ==9){precios[j] = 15000;}
+            }
+        }catch(NullPointerException e){
+            System.out.println(&quot;ERROR NullPointerException :(&quot;);
+        }
+    }</code></pre><p id="40cacc43-2d05-48ce-8422-8e4d7540a906" class="">Se genera la función determinar precio el cual consiste en que a cada producto conforme a la clave del producto esta se le asigna un precio siendo estos solamente 9 productos en el inventario.</p><p id="773a9d1b-70b2-4147-8c1e-6dc73647d93a" class="">
+</p><pre id="2bae785c-46c3-4145-9be0-9829ffa9aa08" class="code"><code>public static void ingresarProductos(int numero){
+        int ban=0, i=0;
+        productos = new int[numero];
+        int producto;
+       
+        for(i=0;i&lt;numero;i++){
+            System.out.println(&quot;Ingrese el codigo del producto &quot; + (i+1) +&quot; :&quot; );
+            producto = Integer.parseInt(leer());
+               try{
+                    
+                    productos[i] = producto;
+               }catch(NullPointerException e){
+                   System.out.println(&quot;ERROR:...&quot; + e );
+                  
+               }catch(ArrayIndexOutOfBoundsException r){
+                   System.out.println(&quot;ERROR:Revisar numero de productos&quot; + r);
+                   
+               }
+					
+						System.out.println(&quot;\n Se agrego el producto:    &quot; + catalogo[producto] + &quot;\n&quot;);
+        }
+    }</code></pre><p id="bd57fbe5-8057-46a5-8d17-6d2e29a09410" class="">Se crea una función ingresarProductos el cual consiste en crear una cadena de enteros donde iran almacenando los productos y antes de hacerlo se brinda un mensaje en el cual se tiene que ingresar el código del producto el cual se irá almacenando o aumentando.</p><p id="7d530868-e31f-4e08-9ccf-c7476d34191d" class="">
+</p><pre id="b4158888-ac24-40f4-8821-85eca7cd3b46" class="code"><code>public void imprimirCatalogo(){
+        String [] auxiliarNombre = new String[5];
+        int [] auxiliarPrecio = new int[5];
+        
+        auxiliarNombre[0] = &quot;Iphone 8&quot;;
+        auxiliarNombre[1] = &quot;Iphone 9&quot;;
+        auxiliarNombre[2] = &quot;Iphone X&quot;;
+        auxiliarNombre[3] = &quot;Iphone 11&quot;;
+        auxiliarNombre[4] = &quot;Iphone 11 Pro Max&quot;;
+        
+        auxiliarPrecio[2] = 800;
+        auxiliarPrecio[0] = 1500;
+        auxiliarPrecio[1] = 200;
+        auxiliarPrecio[3] = 700;
+        auxiliarPrecio[4] = 500;
+        
+        for(int i=0; i&lt;5; i++){
+            System.out.println(&quot;Codigo del producto : &quot; + i + 
+                    &quot;\t | Nombre del Producto : &quot; + auxiliarNombre[i] + 
+                    &quot;\t | Precio : &quot; + auxiliarPrecio[i]);
+        }
+        System.out.println();
+    }</code></pre><p id="b1a11cc4-d6cf-4ab9-a63b-a4ba1c32a243" class="">Se crea la función imprimir catlago el cual consiste en brindar un menú pequeño en el que brinda la información necesaria para poder saber que productos se eligiran junto con el código del producto para saber cual insertar.</p><p id="3589a33a-205a-4599-b752-97437d065c6a" class="">
+</p><pre id="50a8ac49-d8ef-4065-9dc8-2c0d299b547d" class="code"><code>public int disponibilidad(int numero){
+        int i=0, contador = 0;
+        String path = 
+				&quot;\\Users\\McCarthy\\Documents\\POO\\Editar Proy\\Proyecto\\src\\Proyecto&quot;;
+        String archivoP = path + &quot;productos.obj&quot;;
+        FlujoLinkedListInputStream flujoEntrada= new FlujoLinkedListInputStream(archivoP);
+        //System.out.println(&quot;productos desde el flujo\n &quot; + archivoP);
+        List&lt;Object&gt; productosRegistrados = flujoEntrada.leerObjetos();
+        try {
+            for (Object producto : productosRegistrados) {
+                if ((int) producto == productos[i]) {
+              
+                    contador++;
+                    i++;
+                }
+                
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(&quot;productos no disponibles&quot;);
+        }
+        
+        return contador;
+    }</code></pre><p id="df869a13-9ff2-4dba-8324-f6b3ae9a6b50" class="">Se crea la función disponibilidad, en la que se verifica si la cantidad que se desea ingresar al registrar un producto es la suficiente que se tiene en existencia esto lo hace con el archivo creado productos.obj en la ruta especificada, y se realiza una comparación y se determina la disponibilidad. </p><p id="168cf7b1-fb89-4ac9-ac67-08fed4b7c093" class="">
+</p><pre id="80043951-1465-4c7b-94c1-c63174fc4633" class="code"><code>public void registrarVenta(){
+        int i;
+        int numero;
+        int cuenta;
+        String opc;
+        //imprimirCatalogo();
+        do{
+            imprimirCatalogo();
+            System.out.flush();
+            System.out.println(&quot;¿Cuantos productos desea registrar?\n&quot;);
+            numero = Integer.parseInt(leer());
+            if(numero == 0)
+                System.out.println(
+								&quot;\nIngrese un valor mayor a 0 para realizar una compra\n&quot;);
+        }while(numero == 0);
+        
+        ingresarProductos(numero);
+        cuenta = disponibilidad(numero);
+        if (cuenta == numero) {
+            //Aqui se determinan todos los elementos del Ticket 
+						//para poder crearlo y se pregunta si todo está bien o se va a alterar algo
+            determinarPrecios(numero);
+            double precioFinal = generarPrecioFinal(numero);
+            numeroVenta = generarNumeroDeVenta();
+            System.out.println(&quot;El precio final es de: &quot; + precioFinal);
+            System.out.println(
+                    &quot;¿Desea realizar un cambio?(si/no), &quot;
+                            + &quot;Ingresar todo de nuevo&quot;);
+            opc = leer();
+            if (opc.equals(&quot;si&quot;)) {
+                productos = null;
+                precios = null;
+                ingresarProductos(numero);
+                determinarPrecios(numero);
+                precioFinal = generarPrecioFinal(numero);
+            }
+            double cambio;
+            do{
+            double montoCliente = generarMontoCliente();
+           
+                cambio = generarCambio(precioFinal, montoCliente);
+
+                if(cambio &gt;= 0){
+                    TicketDigital ticket = new TicketDigital(
+                        productos, precios, numeroVenta, 16, 
+                        precioFinal, montoCliente, cambio, numero);
+            
+                    System.out.println(ticket);
+                    tickets.add(ticket);
+                }
+                else{
+                    System.out.println(&quot;\nDebe pagar con un monto mayor al precio final,&quot;
+                            + &quot; para realizar la compra\n&quot;);
+                }
+            }while(cambio &lt; 0);
+        }
+        else{
+            System.out.println(&quot;no hay productos suficientes &quot; + cuenta);
+        }
+    }</code></pre><p id="c5ae2140-73cd-4181-a827-4bf18569bcee" class="">Se crea la función venta la cual es la manejadora de las transacciones que se realizarán, después de haber ingresado como empleado, se imprime el catalogo de los productos y se pregunta cuando de esos productos se desea registrar, si se coloca una cantidad menos a 0 esta se vuelve a proyectar para que se registre por lo menos una cantidad mínima de 1, después de mandar a llamar a la función ingresarProductos y realizar la disponibilidad, se generan los precios de los productos, y se genera la suma del precioTotal del producto o productos seleccionados, y se presenta el precio Total de la venta, se debe de confirmar la acción, también se evalúa el monto con el que se paga , por lo que si es menor al monto del precioTotal, esta pide se pague con un monto mayor o igual, para poder generar el ticket del registro, enviando los datos correctos.</p><p id="02704a94-0576-4173-bd5b-09f16e69dcd8" class="">
+</p><pre id="9ab25db8-9a6b-4cfd-b541-0fcb56200ebd" class="code"><code>public  void almacenarTicketDigital(){
+        String path = &quot;\\Users\\McCarthy\\Documents\\POO\\Editar Proy\\Proyecto\\src\\Proyecto&quot;;
+        String archivoN = path + &quot;Ventas.obj&quot;;
+        FlujoLinkedListOutputStream flujoSalida= new FlujoLinkedListOutputStream(archivoN);
+        System.out.println(&quot;Almacenando venta...\n &quot;);
+        flujoSalida.escribirObjetos(tickets);
+    }</code></pre><p id="f09181ab-5a73-48a5-a0a1-e20a6f1b8177" class="">Se genera la función almacenarTicketDigital el consta en cuando se haya registrado la acción correctamente esta envía el ticket o la información del Ticket a un archivo de Vnetas.obj</p><p id="55811d1e-43e9-4171-bd3e-e7d28fd58ae0" class="">
+</p><pre id="869a3fa0-f5c3-43b9-b98d-41d2d8e5d568" class="code"><code>public static int generarNumeroDeVenta() {
+        int numeroAl;
+        Stack&lt; Integer&gt; numVen = new Stack&lt; Integer&gt;();
+        numeroAl = (int) Math.floor(Math.random() * 1000000 );
+        while(numVen.contains(numeroAl)){
+            numeroAl = (int) Math.floor(Math.random() * 1000000 );
+        }
+        numVen.push(numeroAl);
+        return numeroAl;
+    }</code></pre><p id="178d3fa1-9670-493a-a39a-ea1918df5927" class="">Se genera la función generarNumeroDeVenta se genera un numero aleatorio del 7 dígitos para el numero de venta, y se devuelve para usarlo en el ticket.</p><p id="c5274f3f-2b9e-4f44-8852-fc9d4d7447e9" class="">
+</p><pre id="b8061b4a-aee0-4214-8a30-4b8184c43f05" class="code"><code>public static double generarPrecioFinal(int numero){
+        double precioFin = 0;
+        int a = 0;
+        try{
+            for(a = 0; a&lt;numero ;a++)
+                precioFin = precioFin + precios[a];
+        }catch(NullPointerException e){
+            System.out.println(&quot;ERROR NullPointerException :(&quot;);
+            precios = null;
+        }
+        return precioFin;
+    }</code></pre><p id="fa9edbe3-0c49-4dfc-946f-a4a2f60d9d2a" class="">Se genera la función generarPrecioFinal, se realiza la suma de los productos que fueron seleccionados para registrar y se devuelve el monto total.</p><p id="2df5b1c2-015b-44b1-b931-b23972917b28" class="">
+</p><pre id="a7740be6-a0eb-4d28-b54c-f256b5742d50" class="code"><code>public static double generarMontoCliente(){
+        double monto;
+        System.out.println(&quot;Con cuanto dinero va a pagar?&quot;);
+        monto = Double.parseDouble(leer());
+        return monto;
+    }</code></pre><p id="39842aad-7455-402d-9614-ad68954b2f64" class="">Se genera la función generarMontoCliente en la cual simplemente se lee el monto con que se va a apagar para poder realizar la operación del cambio.</p><p id="61445a85-474e-48a9-839e-cc186dffa744" class="">
+</p><pre id="8e17a7df-a978-484e-b889-01f898559ea5" class="code"><code>public static double generarCambio(double precioFinal, double montoCliente){
+        double cambio= montoCliente-precioFinal;
+        if(cambio&lt;0 ){ System.out.println(&quot;Monto insuficiente&quot;); return cambio;}
+        else{ 
+            return cambio;
+        }
+    }</code></pre><p id="88fc50f5-5ecc-4832-9ba4-00e8e6c7a5d2" class="">Se genera la función generarCambio, donde se realiza la resta y si el moento con el que paga es menos a la de la suma de productos registrados, entonces se hace mensión del que monto es insuficiente.</p><p id="286544fd-3ae1-477e-917b-644ffe82ab1b" class="">
+</p><pre id="3ca5e42e-432e-4bf1-a40f-645e98696339" class="code"><code>public static String leer(){
+        String s=&quot;&quot;;
+	BufferedReader sd = new BufferedReader(new InputStreamReader(System.in));
+            try{
+        	    s =sd.readLine();
+            }
+	catch(IOException e){
+        	System.out.println(&quot;ERROR: Se introdujo el dato&quot;);
+       		System.out.println(e);
+    	}
+    	return s;
+    }</code></pre><hr id="42fd73ef-9285-4ce9-b669-53b11e502508"/><p id="299de5c0-f152-4f89-a018-431a07b40660" class="">
+</p><h1 id="10b01835-021a-4331-a4a3-a170b05f664e" class="">Clase Tienda:</h1><pre id="342675bd-8673-456c-a337-4a1d9a526f13" class="code"><code>public class Tienda {
+    public static void main(String [] args){
+        Departamento unDepto = new Departamento(&quot;Cosmeticos&quot;,1,10000.0);
+        unDepto.realizarmovimientos();
+    }
+}</code></pre><p id="6f0c1f8a-4add-4fd6-ab61-d2b1fd9be861" class="">Esta clase implementa el hilo de ejecución principal main() el cual crea una instancia de Departamento llamada unDepto  y se manda a llamar el constructor de la clase correspondiente para después llamar a el método realizarMovimientos().</p><p id="ef1d364a-0091-42dc-838a-de64e983f430" class="">
+</p><figure id="284bb319-bab5-42ff-abb7-5dbbf0285d15" class="link-to-page"><a href="https://www.notion.so/284bb319bab542ffabb75dbbf0285d15">Untitled</a></figure></div></article></body></html>
