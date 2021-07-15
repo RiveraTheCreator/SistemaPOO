@@ -48,6 +48,7 @@ El programa realizara una suma del precio de los productos. Este será restado d
 presupuesto de la tienda. Si el presupuesto es suficiente se añadirán correctamente los
 productos al inventario
 Al realizar la siguiente acción se nos mostrará el presupuesto restante
+
 Opción 2) Regresar
 Regresa al menú de GerenteOpción 2 Aumentar Presupuesto de la tienda Menú Encargado
 Cuando el presupuesto es insuficiente para realizar la compra al proveedor y
@@ -57,9 +58,11 @@ manda
 $100,000.00
 que serán agregados al presupuesto de tienda.Permitiéndonos comprar más producto para el inventario.
 
+
 Opción 3 Mostrar Ventas Menú Encargado
 Nos mostrara los tickets de las ventas realizadas y nos regresara al menú de
 encargado
+
 Opción 4 Configuración de usuario Menú Encargado
 En este apartado nos desplegara un menú preguntando si queremos editar algún
 dato relacionado con el encargado
@@ -67,6 +70,7 @@ Nos preguntara que queremos editar si el nombre, contraseña, dirección, teléf
 fecha de contratación, antigüedad, el departamento o si queremos regresar
 Si editamos algo nos pedirá el nuevo valor y nos regresara al menú de editar
 información
+
 Opción 5 Salir Menú Encargado
 Termina el programa
 Ingresando como Trabajador:
