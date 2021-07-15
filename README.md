@@ -11,16 +11,21 @@ Inicio de sesión
 Ingresa tu ID de personal o Encargado
 Los usuarios correspondientes son:
 Cuentas de personal:
+
 *Trabajador 1 Juan Daniel Hernandez
 	o ID: 1234
 	o Contraseña: halo1429
+
 *Trabajador 2 Victor De La Cruz
 	o ID: 2345
 	o Contraseña: hugo22
+
 Cuenta de Encargado:
 *Encargado Saul Torres De La O
 	o ID: 3456
 	o Contraseña: sdelao
+
+
 Dependiendo del usuario con el que ingresemos se ejecutaran diferentes
 acciones. Si el usuario introduce valores erróneos el programa mostrará una excepción
 y se cerrara.Ingresando como Encargado:
