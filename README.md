@@ -113,10 +113,11 @@ fecha de contratación, antigüedad, el departamento o si queremos regresar
 Si editamos algo nos pedirá el nuevo valor y nos regresara al menú de editar
 información
 Opción 2) Ver información
-Se desplegara la información del usuario con el siguiente formato
-*Nombre
-*ID
-*Direccióno calle y numero o colonia o ciudad o código postal
+Se desplegara la información del usuario con el siguiente formato:
+
+-Nombre
+-ID
+-Direccióno calle y numero o colonia o ciudad o código postal
 - Contacto del usuario
 - Teléfono y Correo Electrónico
 - Informacion su contratación o Fecha de contratación o Antigüedado Departamento o Sueldo
@@ -124,3 +125,6 @@ Se desplegara la información del usuario con el siguiente formato
 Opción 3) Regresar
 Opción 3 SALIR Menú Personal
 Termina el programa
+-----------------------------
+NOTA: Cambiar todas las rutas para que el codigo funcione.
+El proyecto fue desarrollado para la materia de POO del profe Saul De la O
