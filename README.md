@@ -101,7 +101,7 @@ Se genera el TicketDigital de la compra con el siguiente formato
 * El precio total
 * La cantidad con la que pago el cliente
 * El cambio de la compra
-*El Mensaje “Gracias por su compra 
+* El Mensaje “Gracias por su compra 
 
 Al finalizar nos devolverá al menú de ventas por si se va a registrar otra ventaOpción 2) Regresar
 El programa regresa al menú de personal
@@ -115,9 +115,9 @@ información
 Opción 2) Ver información
 Se desplegara la información del usuario con el siguiente formato:
 
--Nombre
--ID
--Direccióno calle y numero o colonia o ciudad o código postal
+- Nombre
+- ID
+- Direccióno calle y numero o colonia o ciudad o código postal
 - Contacto del usuario
 - Teléfono y Correo Electrónico
 - Informacion su contratación o Fecha de contratación o Antigüedado Departamento o Sueldo
