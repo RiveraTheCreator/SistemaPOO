@@ -1,4 +1,5 @@
 # SistemaPOO
+## Comenzando 🚀
 Primera vez corriendo el programa:
 El empleado no puede generar una venta si no existen productos en el inventario
 previamente comprados a los proveedores por el encargado
@@ -12,16 +13,16 @@ Ingresa tu ID de personal o Encargado
 Los usuarios correspondientes son:
 Cuentas de personal:
 
-*Trabajador 1 Juan Daniel Hernandez
+* Trabajador 1 Juan Daniel Hernandez
 	o ID: 1234
 	o Contraseña: halo1429
 
-*Trabajador 2 Victor De La Cruz
+* Trabajador 2 Victor De La Cruz
 	o ID: 2345
 	o Contraseña: hugo22
 
 Cuenta de Encargado:
-*Encargado Saul Torres De La O
+* Encargado Saul Torres De La O
 	o ID: 3456
 	o Contraseña: sdelao
 
