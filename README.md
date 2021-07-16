@@ -125,6 +125,7 @@ Se desplegara la información del usuario con el siguiente formato:
 Opción 3) Regresar
 Opción 3 SALIR Menú Personal
 Termina el programa
+
 -----------------------------
 NOTA: Cambiar todas las rutas para que el codigo funcione.
 El proyecto fue desarrollado para la materia de POO del profe Saul De la O
